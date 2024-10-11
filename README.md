@@ -24,7 +24,7 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 ---
 
-### Week 1: 26 Aug - 1 Sep
+### Week 1: [26 Aug - 1 Sep]
 
 #### Objectives:
 1. Understand the problem statement, study research papers on micro-Doppler signature analysis and object identification, and learn radar system principles.
@@ -55,7 +55,7 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 ---
 
-### Week 2: 2 Sep - 8 Sep
+### Week 2: [2 Sep - 8 Sep]
 
 #### Objectives:
 1. Create a PowerPoint presentation for the hackathon.
@@ -85,7 +85,7 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 ---
 
-### Week 3: 9 Sep - 15 Sep
+### Week 3: [9 Sep - 15 Sep]
 
 #### Objectives:
 1. Find datasets of STFT spectrograms for UAV classification.
@@ -104,7 +104,7 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 ---
 
-### Week 4: 16 Sep - 22 Sep
+### Week 4: [16 Sep - 22 Sep]
 
 #### Objectives:
 1. Implement deep learning using pre-trained models.
@@ -132,7 +132,7 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 ---
 
-### Week 5: 23 Sep - 29 Sep
+### Week 5: [23 Sep - 29 Sep]
 
 #### Objectives:
 1. Obtain real bird micro-Doppler data or generate it synthetically.
@@ -173,37 +173,37 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 #### Objectives:
 
-- 1: [Finalize the bird synthetic data and test it in the model.]
-- 2: [Develop final 3D visualizations for object tracking in the web interface.]
+- 1: Finalize the bird synthetic data and test it in the model.
+- 2: Develop final 3D visualizations for object tracking in the web interface.
 
 #### Progress:
 
-- [Objective 1]: [In progress, synthetic data generation nearly complete.]
-- [Objective 2]: [Completed, 3D visualizations integrated into the web interface using Three.js.]
+- Objective 1: In progress, synthetic data generation nearly complete.
+- Objective 2: Completed, 3D visualizations integrated into the web interface using Three.js.
 
 #### Challenges & Solutions:
 
 1. Challenge:
-   [Synthetic data doesn’t exactly match real bird movements in nature, leading to some discrepancies in classification accuracy.]
+   Synthetic data doesn’t exactly match real bird movements in nature, leading to some discrepancies in classification accuracy.
    
    Solution:
-  [Refine the parameters used to generate the synthetic data by studying more bird flight patterns and micro-Doppler effects.]
+  Refine the parameters used to generate the synthetic data by studying more bird flight patterns and micro-Doppler effects.
 
 2. Challenge:
-  [Rendering the 3D models smoothly on different devices, especially mobile platforms.]
+  Rendering the 3D models smoothly on different devices, especially mobile platforms.
 
    Solution:
-  [Implemented responsive design techniques and optimized the 3D rendering for better performance across devices.]
+  Implemented responsive design techniques and optimized the 3D rendering for better performance across devices.
 
 #### Key Decisions:
 
-- [Responsive design]: Ensure 3D visualizations are optimized for mobile, desktop, and web platforms.
-- [Parameter refinement]: Adjust the simulation parameters for synthetic bird data to improve model accuracy.
+- Responsive design: Ensure 3D visualizations are optimized for mobile, desktop, and web platforms.
+- Parameter refinement: Adjust the simulation parameters for synthetic bird data to improve model accuracy.
 
 #### Next Steps:
 
-- 1. [Continue refining the synthetic data and testing its effectiveness.]
-- 2. [Prepare a final demo for stakeholders.]
+- 1. Continue refining the synthetic data and testing its effectiveness.
+- 2. Prepare a final demo for stakeholders.
 
 #### Notes:
 
@@ -215,31 +215,31 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 #### Objectives:
 
-- 1: [Test the final model with both drone and synthetic bird data.]
-- 2: [Run full integration tests with real-time radar data.]
+- 1: Test the final model with both drone and synthetic bird data.
+- 2: Run full integration tests with real-time radar data.
 
 #### Progress:
 
-- [Objective 1]: [In progress, testing model accuracy with drone and synthetic bird data.]
-- [Objective 2]: [Pending, real-time radar data integration testing yet to begin.]
+- Objective 1: In progress, testing model accuracy with drone and synthetic bird data.
+- Objective 2: Pending, real-time radar data integration testing yet to begin.
 
 #### Challenges & Solutions:
 
 1. Challenge:
-  [Discrepancies between drone data and bird data handling by the model.]
+  Discrepancies between drone data and bird data handling by the model.
 
    Solution:
-  [Adjust model weights and layers to better differentiate between bird and drone micro-Doppler signatures.]
+  Adjust model weights and layers to better differentiate between bird and drone micro-Doppler signatures.
 
 #### Key Decisions:
 
-- [Model fine-tuning]: Focus on improving classification accuracy for bird versus drone detection.
+- Model fine-tuning: Focus on improving classification accuracy for bird versus drone detection.
 
 
 #### Next Steps:
 
-- 1. [Complete final integration testing with radar data.]
-- 2. [Present findings and final results to stakeholders.]
+- 1. Complete final integration testing with radar data.
+- 2. Present findings and final results to stakeholders.
 
 #### Notes:
 
