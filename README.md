@@ -176,74 +176,18 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 > When working with data that's hard to find, don’t hesitate to generate synthetic datasets based on known patterns and characteristics.
 > Always allocate time for optimizing your code, as inefficiencies can significantly slow down processes when working with large datasets.
 
----
-### Week 6: [30 SEP - 6 OCT]
+### Week 6: [30 Sep - 6 Oct]
 
-#### Objectives:
+#### Challenges - objectives - plans
 
-- 1: Finalize the bird synthetic data and test it in the model.
-- 2: Develop final 3D visualizations for object tracking in the web interface.
+- 1.  The model was being suspiciously accurate. Maybe it's overfit with the data we currently have, or the attributes Resnet50 is considering for classification may not be the most accurate in case of STFT spectrograms.
 
-#### Progress:
+- 2. An STFT spectrogram of a helicopter drone was fed to the model which it named as bionic bird
 
-- Objective 1: In progress, synthetic data generation nearly complete.
-- Objective 2: Completed, 3D visualizations integrated into the web interface using Three.js.
+- 3. Possibly our dataset’s size can be increased through the generation of synthetic dataset using MATLAB or something. Bigger dataset for our model to be trained on.
 
-#### Challenges & Solutions:
-
-1. **Challenge:** Synthetic data doesn’t exactly match real bird movements in nature, leading to some discrepancies in classification accuracy.
-   - **Solution:** Refine the parameters used to generate the synthetic data by studying more bird flight patterns and micro-Doppler effects.
-
-2. **Challenge:** Rendering the 3D models smoothly on different devices, especially mobile platforms.
-  - **Solution:** Implemented responsive design techniques and optimized the 3D rendering for better performance across devices.
-
-#### Key Decisions:
-
-- Responsive design: Ensure 3D visualizations are optimized for mobile, desktop, and web platforms.
-- Parameter refinement: Adjust the simulation parameters for synthetic bird data to improve model accuracy.
-
-#### Next Steps:
-
-- 1. Continue refining the synthetic data and testing its effectiveness.
-- 2. Prepare a final demo for stakeholders.
-
-#### Notes:
-
-> Always validate synthetic data against real-world patterns as much as possible.
-> Keep mobile and desktop performance in mind when working with advanced visualizations in web interfaces.
----
-
-### Week 7: [7 OCT - 13 OCT]
-
-#### Objectives:
-
-- 1: Test the final model with both drone and synthetic bird data.
-- 2: Run full integration tests with real-time radar data.
-
-#### Progress:
-
-- Objective 1: In progress, testing model accuracy with drone and synthetic bird data.
-- Objective 2: Pending, real-time radar data integration testing yet to begin.
-
-#### Challenges & Solutions:
-
-1. **Challenge:** Discrepancies between drone data and bird data handling by the model.
-   - **Solution:** Adjust model weights and layers to better differentiate between bird and drone micro-Doppler signatures.
-
-#### Key Decisions:
-
-- Model fine-tuning: Focus on improving classification accuracy for bird versus drone detection.
-
-
-#### Next Steps:
-
-- 1. Complete final integration testing with radar data.
-- 2. Present findings and final results to stakeholders.
-
-#### Notes:
-
-> Model fine-tuning is critical to achieving accurate results when working with diverse datasets like drone and bird data.
-> Testing the system thoroughly with real-time radar data is essential to ensure it works as expected in practical use cases.
+- 4. Synthetic data generation for STFT spectrograms of birds will be done in the future.
+     
 ---
 
 ## Conclusion:
