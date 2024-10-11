@@ -183,17 +183,13 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 #### Challenges & Solutions:
 
-1. Challenge:
-   Synthetic data doesn’t exactly match real bird movements in nature, leading to some discrepancies in classification accuracy.
+1. **Challenge:** Synthetic data doesn’t exactly match real bird movements in nature, leading to some discrepancies in classification accuracy.
    
-   Solution:
-  Refine the parameters used to generate the synthetic data by studying more bird flight patterns and micro-Doppler effects.
+   **Solution:** Refine the parameters used to generate the synthetic data by studying more bird flight patterns and micro-Doppler effects.
 
-2. Challenge:
-  Rendering the 3D models smoothly on different devices, especially mobile platforms.
+2. **Challenge:** Rendering the 3D models smoothly on different devices, especially mobile platforms.
 
-   Solution:
-  Implemented responsive design techniques and optimized the 3D rendering for better performance across devices.
+   **Solution:** Implemented responsive design techniques and optimized the 3D rendering for better performance across devices.
 
 #### Key Decisions:
 
@@ -225,11 +221,9 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 #### Challenges & Solutions:
 
-1. Challenge:
-  Discrepancies between drone data and bird data handling by the model.
+1. **Challenge:** Discrepancies between drone data and bird data handling by the model.
 
-   Solution:
-  Adjust model weights and layers to better differentiate between bird and drone micro-Doppler signatures.
+   **Solution:** Adjust model weights and layers to better differentiate between bird and drone micro-Doppler signatures.
 
 #### Key Decisions:
 
