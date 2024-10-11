@@ -311,15 +311,15 @@ SkySentinel-X has made significant strides in using deep learning models to clas
 
 ## Glossary
 
-DL : Deep learning
-ML : Machine learning
-STFT : Short time fourier transform
-CNN : convolutional neural networks
-RNN : recurrent neural network
-LSTM : low short term memory
-UAV : Unmanned aerial vehicle
-VGG : visual geometry groups
-REPO : repository
-UI : User interface
-API : application programming interface
-USP : unique selling point
+- DL : Deep learning
+- ML : Machine learning
+- STFT : Short time fourier transform
+- CNN : convolutional neural networks
+- RNN : recurrent neural network
+- LSTM : low short term memory
+- UAV : Unmanned aerial vehicle
+- VGG : visual geometry groups
+- REPO : repository
+- UI : User interface
+- API : application programming interface
+- USP : unique selling point
