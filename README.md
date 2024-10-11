@@ -17,10 +17,12 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
   - Eish Chandeal
   - Diya Virmani
 
-- **Project Goals:**  
+- **Project Goals:**
+  
   The goal is to create software for the identification of flying objects based on their micro-Doppler signatures, determining whether it is a UAV (Unmanned Aerial Vehicle) or a bird.  
-  The software will be in the form of a web application that displays information about the flying object, including its classification and additional features such as velocity, coordinates, and visual movement patterns in 2D and 3D formats.  
-  The core models will be CNN and RNN, used to analyze micro-Doppler signatures and provide accurate classification results.
+  The software will be in the form of a web application that displays information about the flying object, including its classification and additional features such as velocity,     
+  coordinates, and visual movement patterns in 2D and 3D formats. The core models will be CNN and RNN, used to analyze micro-Doppler signatures and provide accurate classification 
+  results.
 
 ---
 
@@ -42,6 +44,7 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 #### Challenges & Solutions:
 1. **Challenge:** Understanding the integration of technologies and signal processing.
+   
    - **Solution:** Signals will be processed into STFT spectrograms, with CNNs for object classification and RNNs for object tracking and visualizing movement in 2D/3D.
 
 #### Key Decisions:
@@ -69,10 +72,13 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 - Objective 3: Completed – 3D model created using ReactJS.
 
 #### Challenges & Solutions:
+
 1. **Challenge:** Finding existing 3D models and rendering them on the web interface.
+   
    - **Solution:** Found models online and used React libraries for rendering.
 
 2. **Challenge:** Making the presentation visually appealing while adhering to format.
+   
    - **Solution:** Used statistics and a flowchart to enhance the presentation.
 
 #### Key Decisions:
@@ -96,7 +102,9 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 - Objective 2: Completed – Researched CNN applications in spectrogram analysis.
 
 #### Challenges & Solutions:
-1. **Challenge:** Most datasets were behind paywalls.
+
+1. **Challenge:** Most datasets were behind paywalls or the other, will require proper dataset containing imagery in the form of STFT spectrograms.
+   
    - **Solution:** Found a verified free dataset after extensive searching.
 
 #### Next Steps:
@@ -154,14 +162,14 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
 
 #### Key Decisions:
 
-- [Generate synthetic bird data]: Since actual bird micro-Doppler data is unavailable, the team will simulate the required data.
-- [Optimize the code]: Prioritize reducing inefficiencies to speed up the execution time during model training.
+- Generate synthetic bird data : Since actual bird micro-Doppler data is unavailable, the team will simulate the required data.
+- Optimize the code : Prioritize reducing inefficiencies to speed up the execution time during model training.
   
 #### Next Steps:
 
-- 1. [Complete the synthetic bird data generation using tools like MATLAB or SciPy.]
-- 2. [Optimize model training and execution on platforms like Google Colab.]
-- 3. [Prepare for further testing and integrate the data into the web interface for real-time classification.]
+- 1. Complete the synthetic bird data generation using tools like MATLAB or SciPy.
+- 2. Optimize model training and execution on platforms like Google Colab.
+- 3. Prepare for further testing and integrate the data into the web interface for real-time classification.
 
 #### Notes:
 
