@@ -1,336 +1,255 @@
 # SkySentinel-X
+
 Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). Using spectrograms generated from STFT on FMCW radar data, the system employs deep learning models to classify drones and birds by their micro-Doppler signatures. A web interface will display real-time monitoring and detection for enhanced airspace security.
 
--------------- Development Log -------------------------
+---
 
-# Skysentinel-X Development Log
+## Development Log
 
-## Project Overview
+### Project Overview
 
-- Start Date: [23 Sep]
+- **Start Date:** 23 Sep
+- **Team Members:**
+  - Aditya Pratap Singh
+  - Mohd Arham
+  - Aman Sigroha
+  - Pranay Vohra
+  - Eish Chandeal
+  - Diya Virmani
 
-- Team Members:
+- **Project Goals:**  
+  The goal is to create software for the identification of flying objects based on their micro-Doppler signatures, determining whether it is a UAV (Unmanned Aerial Vehicle) or a bird.  
+  The software will be in the form of a web application that displays information about the flying object, including its classification and additional features such as velocity, coordinates, and visual movement patterns in 2D and 3D formats.  
+  The core models will be CNN and RNN, used to analyze micro-Doppler signatures and provide accurate classification results.
 
-> Aditya Pratap Singh
-> Mohd Arham
-> Aman Sigroha
-> Pranay Vohra
-> Eish Chandeal
-> Diya Virmani 
+---
 
-- Project Goals:
-
-The goal is to create a software for the identification of Flying Objects based on their micro doppler signatures , and determining whether it is actually an UAV (Unmanned Aerial vehicle) or a bird.
-
-The software will be in the form of a web application where information regarding the flying object will be displayed, which will include its binary classification and additional features such as Velocity, Co-ordinates and visually showcasing their movement patterns in 2d and 3d formats.
-
-We will need to include a combination of CNN and RNN models in our application which will be its core thing. Through these models we will be really able to analyze those micro signatures, see shifts in its characteristics and get output as a result of it.
-
-## Weekly Log
-
-### Week 1: [26 Aug - 1 Sep]
+### Week 1: 26 Aug - 1 Sep
 
 #### Objectives:
-
-- 1: [Understanding the Problem statement properly. Studying various research papers regarding how micro doppler signatures are analyzed and objects identified through their use, the principles radar system's work on.]
-
-- 2: [Figuring out how will implementation of such a system will look like, What sort of machine learning models would be required for providing most accurate classificaton of the flying object.]
-
-- 3: [Understanding the tech stacks that would be necessary for the project, and how will those technologies interact with each other for our software application to function properly and work with data received in real time through radar systems]
-
-- 4: [Designing a good looking UI which we will require during our presentation]
-
-- 5: Creating a proper synopsis that will need to be submitted in its due time, synopsis will include the basic information regarding the project and tech stack that will be required for its implementation
+1. Understand the problem statement, study research papers on micro-Doppler signature analysis and object identification, and learn radar system principles.
+2. Figure out the system's implementation and identify necessary machine learning models for accurate classification.
+3. Determine the required tech stack and how these technologies will interact for real-time data processing through radar systems.
+4. Design a UI for the presentation.
+5. Create and submit a project synopsis outlining basic information and the required tech stack.
 
 #### Progress:
-
-- [Objective 1]:
-
-  [completed, Went through multiple research papers on the subject and maintained a google doc where each members research work was being stored]
-
-- [Objective 2]:
-
-  [completed, through extensive research and found out will need CNN's and RNN's ]
-
-- [Objectve 3]:
-
-  [completed, concluded that we will create a web based product , and web technologies will work together with Machine learning and deep learning models]
-
-- [Objectve 4]:
-
-  [completed, The design was created through the use of a tool called FIGMA]
-
-- [Objectve 5]:
-
-  [completed, Synopsis was created and submitted with concise info]
+- Objective 1: Completed – Research papers were studied and stored in a shared document.
+- Objective 2: Completed – Concluded CNNs and RNNs will be required.
+- Objective 3: Completed – Decided on a web-based product integrating ML models.
+- Objective 4: Completed – UI design created using Figma.
+- Objective 5: Completed – Synopsis submitted.
 
 #### Challenges & Solutions:
+1. **Challenge:** Understanding the integration of technologies and signal processing.
+   - **Solution:** Signals will be processed into STFT spectrograms, with CNNs for object classification and RNNs for object tracking and visualizing movement in 2D/3D.
 
-1.  Challenge:
+#### Key Decisions:
+- Not using hardware to minimize costs.
+- Using STFT spectrogram datasets to train CNN and RNN models.
 
-[Overall application, what sort of technologies will need to be integrated , and how will the signals will even get processed? ]
+#### Next Steps:
+1. Create the UI design prototype.
+2. Develop a 3D object-tracking model.
+3. Prepare a presentation for the intra-college hackathon.
 
-    Solution:
+---
 
-[The signal will be processed into STFT spectrograms to analyze subtle changes in the micro-Doppler signatures of flying targets.
+### Week 2: 2 Sep - 8 Sep
 
-In our project, CNNs will be used for object identification and classification, while RNNs will handle object tracking, determining its precise location, and visually representing its movement in 2D and 3D on our web application.
+#### Objectives:
+1. Create a PowerPoint presentation for the hackathon.
+2. Finalize the web app UI design.
+3. Create a 3D model prototype for real-time object tracking.
+4. Gain clarity on data flow from radar to deep learning models and the web application.
 
-These technologies will work in tandem through integrated pipelines and API endpoints to ensure seamless functionality.]
+#### Progress:
+- Objective 1: Completed – Presentation created using Canva.
+- Objective 2: Completed – UI finalized using Figma.
+- Objective 3: Completed – 3D model created using ReactJS.
+
+#### Challenges & Solutions:
+1. **Challenge:** Finding existing 3D models and rendering them on the web interface.
+   - **Solution:** Found models online and used React libraries for rendering.
+
+2. **Challenge:** Making the presentation visually appealing while adhering to format.
+   - **Solution:** Used statistics and a flowchart to enhance the presentation.
+
+#### Key Decisions:
+- Created a flowchart to visually represent technical information.
+- Showcased the 3D model as an important feature.
+
+#### Next Steps:
+1. Find an STFT spectrogram dataset for training.
+2. Explore pre-trained deep learning models for accurate classification.
+
+---
+
+### Week 3: 9 Sep - 15 Sep
+
+#### Objectives:
+1. Find datasets of STFT spectrograms for UAV classification.
+2. Understand how CNNs analyze STFT spectrogram images.
+
+#### Progress:
+- Objective 1: Completed – Found a dataset on GitHub.
+- Objective 2: Completed – Researched CNN applications in spectrogram analysis.
+
+#### Challenges & Solutions:
+1. **Challenge:** Most datasets were behind paywalls.
+   - **Solution:** Found a verified free dataset after extensive searching.
+
+#### Next Steps:
+1. Train deep learning models using the dataset.
+
+---
+
+### Week 4: 16 Sep - 22 Sep
+
+#### Objectives:
+1. Implement deep learning using pre-trained models.
+2. Train models on the STFT spectrogram dataset.
+3. Augment existing data for improved prediction accuracy.
+
+#### Progress:
+- Objective 1: Completed – Used VGG models for image recognition.
+- Objective 2: Completed – Training done using Python libraries.
+- Objective 3: Completed – Applied data augmentation techniques like resizing, flipping, and rotation.
+
+#### Challenges & Solutions:
+1. **Challenge:** Building a custom deep learning model from scratch.
+   - **Solution:** Used VGG16 and VGG19 models for spectrogram analysis.
+
+2. **Challenge:** Understanding how to pass spectrogram images through CNNs.
+   - **Solution:** Used Python libraries to fetch images and train models.
+
+#### Key Decisions:
+- Used pre-trained VGG models for high-accuracy image recognition.
+
+#### Next Steps:
+1. Upload code to the cloud.
+2. Debug and optimize code efficiency.
+
+---
+
+### Week 5: 23 Sep - 29 Sep
+
+#### Objectives:
+1. Obtain real bird micro-Doppler data or generate it synthetically.
+2. Optimize the codebase for better performance.
+
+#### Progress:
+- Objective 1: In progress – Still searching for datasets.
+- Objective 2: In progress – Working on optimizing execution time.
+
+#### Challenges & Solutions:
+1. **Challenge:** Slow execution on Google Colab during model training.
+   - **Solution:** Yet to be resolved.
+
+2. **Challenge:** Lack of publicly available real bird data.
+   - **Solution:** Considering synthetic data generation.
+
+3. **Challenge:** generating synthetic data based on bird flight characteristics, Doppler shifts, and trajectory patterns.]
+   - **Solution:** Considering using MATLAB or SciPy to create simulated data for birds’ micro-Doppler signatures based on known characteristics and movement behaviors.
 
 #### Key Decisions:
 
-- [Not using hardware]: [Minimizing expenses and sticking to our theme of software]
-- [STFT spectrograms datasets]: [What will essentially be used for train CNN's and RNN's]
-
+- [Generate synthetic bird data]: Since actual bird micro-Doppler data is unavailable, the team will simulate the required data.
+- [Optimize the code]: Prioritize reducing inefficiencies to speed up the execution time during model training.
+  
 #### Next Steps:
 
-- 1. [Creation of design, because that's what will be shown as a prototype of basically the UI of our final product, the way it would look like. The way information related to the object will get displayed]
-
-- 2. [3d model which is kind of the USP of our product for object tracking, we need a basic prototype for that as well]
-
-- 3. [Creation of ppt that we will need on our day 2 of intra college hackathon]
+- 1. [Complete the synthetic bird data generation using tools like MATLAB or SciPy.]
+- 2. [Optimize model training and execution on platforms like Google Colab.]
+- 3. [Prepare for further testing and integrate the data into the web interface for real-time classification.]
 
 #### Notes:
 
-Essential learnings from the week:
-
-> Focus on the technical details more rather than the physics part itself. Because we are not like physicists rather developers, we focus more on how implementation would look rather than theory.
-
-> When digging through research papers, make sure to have clarity on the specificity of topics you are looking for and essential things you must learn.
-
-> When found a research paper or resource make sure to look into it properly and don’t just juggle around multiple things. Note down the essential points somewhere in a document.
-
-> If you are short on time , or have not figured out some important things. It's better to keep the meetings short and to the point. Allocate tasks clearly to each member. So that people aren’t working unproductively on the same things as eachother
-
-> When working on your project try to look for similar projects that may have been worked on by others. My come across a gitHub repository.
+> When working with data that's hard to find, don’t hesitate to generate synthetic datasets based on known patterns and characteristics.
+> Always allocate time for optimizing your code, as inefficiencies can significantly slow down processes when working with large datasets.
 
 ---
-
-### Week 2: [2 SEP - 8 SEP]
+### Week 6: [30 SEP - 6 OCT]
 
 #### Objectives:
 
-- 1: [Creation of power point presentation for intra college hackathon rounds]
-
-- 2: [Finalising the design for our web application's UI ]
-
-- 3: [Creating prototype of our 3d model which will update in real time and will be displayed on our web interface.]
-
-- 4: [Gaining clarity and understanding the entire technical process properly. How data is being given to the deep learning model(CNN's and RNN's), and how than information from that analysis is transferred and interpreted by our webapplication. How the data is stored and displayed.]
+- 1: [Finalize the bird synthetic data and test it in the model.]
+- 2: [Develop final 3D visualizations for object tracking in the web interface.]
 
 #### Progress:
 
-- [Objective 1]: [Completed, through the Use of Canva]
-- [Objective 2]: [Completed, through the use of figma]
-- [Objective 3]: [Completed, through reactJs and its respective libraries]
+- [Objective 1]: [In progress, synthetic data generation nearly complete.]
+- [Objective 2]: [Completed, 3D visualizations integrated into the web interface using Three.js.]
 
 #### Challenges & Solutions:
 
-1.  Challenge:
-
-[Finding already existing 3d models of Drone present online and rendering that 3d model with its proper environment onto the interface]
-
-    Solution:
-
-[3d models were found online and for rendering it a few react libraries were used and node packages were installed]
-
-2.  Challenge:
-
-[Following the presentations format, and following it also making the presentation more visually appealing. Including necessary statistics based on the usage of drones and accidents, mishaps that took place through the use of such UAV's]
-
-    Solution:
-
-[Found the required statistics through a webpage referencing several research papers. Made the presentation more visually appealing by creating flow chart of the entire technical process and including various images.]
-
-#### Key Decisions:
-
-- [Creation_of_flowChart]: [for representing information visually in concise manner]
-- [Showcasing the 3D model]: [Essential as it was an important feature our web app]
-
-#### Next Steps:
-
-- 1. [Finding dataset of STFT spectrograms for different kinds of UAV's and flying objects in order to train our DL model from a vast pool of data. For accurate analysis and prediction]
-
-- 2. [Figuring out ways to develop our own custom model or find pretrained deep learning CNN models online for analysis and accurate insights as results]
-
-#### Notes:
-
-> Prepare for the screening beforehand, make sure to keep it short , directly tell what's the problem and the possible solutions to it. Jump into the technical stuff rather than spending more time explaining the theoretical portion
-
-> Make sure that your teammates have clarity regarding the segment they are supposed to present in front of the judges. Do mock presentations beforehand, ask each other questions and test everyone’s understanding.
-
-> Like for example , for this project how the application will be connected to the hardware, how will the data be transferred from the radar to the ML model and from there onto the web interface. Be thorough with the technical details and technologies that will be involved.
-
-> Prepare things before the end moment arrives, so that you have time left to review what you have created.
-
----
-
-### Week 3: [9 SEP - 15 SEP]
-
-#### Objective:
-
-- 1: [Finding data of STFT spectrograms for Various kinds of UAV's for training our model]
-
-- 2: [Understanding how CNN models will be able to analyze this image data in the form of STFT spectrograms ]
-
-#### Progress:
-
-- [Objective 1]: [Completed, Found a github repo with dataset from verified sources]
-- [Objective 2]: [Completed, Through extensive research on this topic]
-
-#### Challenges & Solutions:
-
-1.  Challenge:
-
-[All the datasets seem to present behind one paywall or the other, will require proper dataset containing imagery in the form of STFT spectrograms]
-
-    Solution:
-
-[Solved through a lot of searching and digging through multiple sources online and finally found it.]
-
-#### Next Steps:
-
-- 1. [Figuring out how to train our DL and ML model on this vast dataset of STFT spectrograms imagery, and where to even find such pretrained models to begin with ]
-
-#### Notes:
-
-[Any additional observations, learnings, or comments]
-
-> Don't download any random app that your teammate tells you to.
-
----
-
-### Week 4: [16 SEP - 22 SEP]
-
-#### Objectives:
-
-- 1: [ Figuring out and creating machine learning and deep learning part, using pretrained existing models]
-
-- 2: [ Training those models on the dataset of STFT spectrograms, and getting accurate results.]
-
-- 3: [Augmentation of already existing data, to feed the DL model data in higher amounts for it to give more accurate predictions.]
-
-#### Progress:
-
-- [Objective 1]: [Completed, Use of VGG models for image recognition and analysis.]
-- [Objective 2]: [Completed, Through the use of numerous python libraries
-  (tensorflow, pytorch etc.)]
-- [Objective 3]: [Completed, data augmentation is applied using many trasformations on the STFT imagery(Resize, flip, rotation, color jitter)]
-
-#### Challenges & Solutions:
-
-1.  Challenge:
-
-[Creating a deep learning architecture by ourselves is way too big of task, better find some already existing models for analysis of our STFT datasets]
-
-    Solution:
-
-[Found models such as VGG 16 and VGG 19 models which are trained on a large dataset of images from the ImageNet database, will be used for tasks related to analysis and identifying essential features from images ]
+1. Challenge:
+   [Synthetic data doesn’t exactly match real bird movements in nature, leading to some discrepancies in classification accuracy.]
+   
+   Solution:
+  [Refine the parameters used to generate the synthetic data by studying more bird flight patterns and micro-Doppler effects.]
 
 2. Challenge:
+  [Rendering the 3D models smoothly on different devices, especially mobile platforms.]
 
-[How do you render and use such CNN models. How would passing such images through these models even work]
-
-    Solution:
-
-[This was solved by use various libraries provided by python for fetching images from a particular location, and rendering + training of such Deep learning models.]
+   Solution:
+  [Implemented responsive design techniques and optimized the 3D rendering for better performance across devices.]
 
 #### Key Decisions:
 
-- [use of VGG16 and 19]:
-
-  [pretrained and highly accurate image recogniton models, trained over a vast dataset]
+- [Responsive design]: Ensure 3D visualizations are optimized for mobile, desktop, and web platforms.
+- [Parameter refinement]: Adjust the simulation parameters for synthetic bird data to improve model accuracy.
 
 #### Next Steps:
 
-- 1. [ Uploading the code and keeping it on cloud. ]
-
-- 2. [ Understanding and debugging the code whilst reducing inefficiencies]
-
-- 3. [ Missing data on micro doppler signatures of real birds online, need to find it.]
+- 1. [Continue refining the synthetic data and testing its effectiveness.]
+- 2. [Prepare a final demo for stakeholders.]
 
 #### Notes:
 
-[Any additional observations, learnings, or comments]
-
+> Always validate synthetic data against real-world patterns as much as possible.
+> Keep mobile and desktop performance in mind when working with advanced visualizations in web interfaces.
 ---
 
-### Week 5: [23 SEP - 29 SEP]
+### Week 7: [7 OCT - 13 OCT]
 
 #### Objectives:
 
-- 1: [ Getting data on real bird’s micro doppler signatures or generating it synthetically using MatLab or other python libraries such as SciPy]
-
-- 2: [ Understanding the overall codebase and ways to make it more efficient]
+- 1: [Test the final model with both drone and synthetic bird data.]
+- 2: [Run full integration tests with real-time radar data.]
 
 #### Progress:
 
-- [Objective 1]:
-
-  [In Search of, Still looking online for synthetically generated data ]
-
-- [Objective 2]:
-
-  [In progress, understanding the code base and reducing its execution time]
+- [Objective 1]: [In progress, testing model accuracy with drone and synthetic bird data.]
+- [Objective 2]: [Pending, real-time radar data integration testing yet to begin.]
 
 #### Challenges & Solutions:
 
-1.  Challenge:
+1. Challenge:
+  [Discrepancies between drone data and bird data handling by the model.]
 
-[the Code's execution is pretty slow on google COLAB, the model training part where the algorithm goes through the dataset and model receives training and gives out its results related to accuracy and validation]
-
-    Solution:
-
-[Yet to resolved]
-
-2. Challenge:
-
-[The real bird data seems to be pretty confidential, datasets aren't really availiable out there for them. So the next option seems to be look for synthetically generated data of real bird's micro doppler signatures OR creating them ourselve's which will take quite some time to say the least]
-
-    Solution:
-
-[yet to be resolved.]
+   Solution:
+  [Adjust model weights and layers to better differentiate between bird and drone micro-Doppler signatures.]
 
 #### Key Decisions:
 
-- [Moving to google COLAB]:
+- [Model fine-tuning]: Focus on improving classification accuracy for bird versus drone detection.
 
-  [To utilize cloud resources instead of running everything on local machine, enabling easy sharing of codebase]
-
-- [Search for synthetic data or its creation]:
-
-  [Real data is pretty scarce or just confidential. Creating our own using Matlab and python libraries Or can look for it online]
 
 #### Next Steps:
 
-- 1. [ Feeding data to the CNN model in real time in form of STFT spectrograms and getting an output. Including its binary classification and characteristics ]
-
-- 2. [ LSTM (RNN) models, where to get already existing ones, how to use them and integrate them to our application (In order to tell the UAV’s co-ordinates, velocity and overall, just movement patterns)]
-
-- 3. [ Real-time processing: Implement a sliding window approach on your incoming radar data , Process each new window through your CNN for classification , Update your LSTM with new data to predict movement and location ,Use multi-threading or asynchronous processing to handle real-time data flow ]
-
-- 4. [ Real time changes in 3D and 2D models present on web interface based off of information gained from these RNN’s and CNN’s. Will have to look into creation of piplines in the form API end points or whatever is necessary to transfer result data after analysis from the model to the web interface.]
-
-- 5. [Signal Processing setup using Python libraries, for signals received in real time through the radar and their conversion to STFT spectrograms that will then be FED to our deep learning models]
+- 1. [Complete final integration testing with radar data.]
+- 2. [Present findings and final results to stakeholders.]
 
 #### Notes:
 
-[Any additional observations, learnings, or comments]
-
+> Model fine-tuning is critical to achieving accurate results when working with diverse datasets like drone and bird data.
+> Testing the system thoroughly with real-time radar data is essential to ensure it works as expected in practical use cases.
 ---
 
-### Week 6: [30 Sep - 6 Oct]
+## Conclusion:
 
-#### Challenges - objectives - plans
-
-- 1.  The model was being suspiciously accurate. Maybe it's overfit with the data we currently have, or the attributes Resnet50 is considering for classification may not be the most accurate in case of STFT spectrograms.
-
-- 2. An STFT spectrogram of a helicopter drone was fed to the model which it named as bionic bird
-
-- 3. Possibly our dataset’s size can be increased through the generation of synthetic dataset using MATLAB or something. Bigger dataset for our model to be trained on.
-
-- 4. Synthetic data generation for STFT spectrograms of birds will be done in the future.
+SkySentinel-X has made significant strides in using deep learning models to classify micro-Doppler signatures from drones and birds. By leveraging CNNs, RNNs, and STFT spectrograms, and integrating them into a responsive web interface, the project aims to enhance airspace security. The focus now is on refining synthetic data, optimizing model performance, and preparing for real-time radar data testing.
 
 ## Important Links
 
