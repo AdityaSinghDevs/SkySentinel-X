@@ -15,7 +15,6 @@ Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). 
   - Aman Sigroha
   - Pranay Vohra
   - Eish Chandeal
-  - Diya Virmani
 
 - **Project Goals:**
   
