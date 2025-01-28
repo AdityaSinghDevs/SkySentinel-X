@@ -13,6 +13,11 @@ GitHub: [AdityaSinghDevs/SkySentinel-X](https://github.com/AdityaSinghDevs/SkySe
 Your acknowledgment helps in maintaining transparency and credits the effort behind this work. Thank you!
 
 ---
++ ## Upcoming Updates  
+
++ The repository will soon be updated with organized datasets and additional source code.  
++ These updates will include refined data, improved documentation, and structured implementations.  
+---
 
 ## Development Log
 
