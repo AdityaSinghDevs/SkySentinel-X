@@ -3,6 +3,16 @@
 Micro-Doppler Target Classification system for the Smart India Hackathon (SIH). Using spectrograms generated from STFT on FMCW radar data, the system employs deep learning models to classify drones and birds by their micro-Doppler signatures. A web interface will display real-time monitoring and detection for enhanced airspace security.
 
 ---
+## Reference  
+
+If you use this work, data, or any part of this project document, please provide appropriate credit by mentioning the repository as a reference:  
+
+**SkySentinel-X** - Project Log Repository  
+GitHub: [AdityaSinghDevs/SkySentinel-X](https://github.com/AdityaSinghDevs/SkySentinel-X)  
+
+Your acknowledgment helps in maintaining transparency and credits the effort behind this work. Thank you!
+
+---
 
 ## Development Log
 
