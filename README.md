@@ -10,7 +10,7 @@ If you use this work, data, or any part of this project document, please provide
 **SkySentinel-X** - Project Log Repository  
 GitHub: [AdityaSinghDevs/SkySentinel-X](https://github.com/AdityaSinghDevs/SkySentinel-X)  
 
-Your acknowledgment helps in maintaining transparency and credits the effort behind this work. Thank you!
+Your acknowledgment helps in maintaining transparency and credits the effort behind this work. Thank you!!
 
 ---
 + ## Upcoming Updates  
