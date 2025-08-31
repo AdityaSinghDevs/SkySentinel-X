@@ -1,0 +1,228 @@
+!pip install -Uqq fastai scikit-learn
+import os
+import numpy as np
+import pandas as pd
+from fastai.vision.all import *
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.utils.class_weight import compute_class_weight
+import matplotlib.pyplot as plt
+import seaborn as sns
+# import shutil
+# import warnings
+# warnings.filterwarnings("ignore")
+
+
+
+# from google.colab import drive
+# drive.mount('/content/drive')
+
+#Setting up all the paths we gonna use
+base_path = Path("/content/drive/MyDrive/DIAT-uSAT_dataset")
+dataset_path = base_path / "Dataset"
+model_export_path = base_path / "Model"
+model_export_path.mkdir(exist_ok=True)
+
+#image settings
+IMG_SIZE = (224,224) #standardizing for ResNet50
+BATCH_SIZE = 32
+VALID_SPLIT = 0.2
+SEED = 42
+
+#Some EDA
+all_images = get_image_files(dataset_path)
+labels = [img.parent.name for img in all_images]
+
+#Sanity checksfor analysis (Creating dataframes)
+df = pd.DataFrame({'file': all_images, 'label': labels})
+print(f"Total Images : {len(df)}")
+print("class dist. : ")
+print(df['label'].value_counts())
+
+#Visualising
+plt.figure(figsize=(10, 6))
+sns.countplot(x='label' , data=df, order=df['label'].value_counts().index)
+plt.title('Class dist. in the dataset')
+plt.xticks(rotation=45, ha = 'right')
+plt.tight_layout()
+plt.show()
+
+#sample of images per class
+print("=" * 30)
+print("\nSample Images per Class:")
+print("=" * 30)
+for label, group in df.groupby('label'):
+    print(f"\nClass: {label}")
+    first_image = group['file'].iloc[0]
+    try:
+        img = PILImage.create(first_image)
+        display(img)
+    except Exception as e:
+        print(f"Error loading image for class {label}: {e}")
+
+#Computing class weights for imbalance
+
+unique_classes = np.unique(labels)
+class_weights = compute_class_weight('balanced', classes = unique_classes, y=labels)
+class_weights_dict = {cls:weight for cls, weight in zip(unique_classes, class_weights)}
+print("class weights:", class_weights_dict)
+
+class_weights_tensor = torch.tensor([class_weights_dict[cls] for cls in unique_classes], dtype=torch.float)
+
+#splitting stratified
+
+def stratified_splitter(items):
+  labels = [item.parent.name for item in items]
+  splitter = StratifiedShuffleSplit(n_splits=1, test_size= VALID_SPLIT, random_state=SEED)
+  train_idx, valid_idx = next(splitter.split(items, labels))
+  return train_idx, valid_idx
+
+#datablock setup with augmentations
+dblock = DataBlock(
+    blocks = (ImageBlock, CategoryBlock),
+    get_items = get_image_files,
+    get_y = parent_label,
+    splitter = stratified_splitter,
+    item_tfms = Resize(IMG_SIZE, method='squish'), #squishing for spectrograms
+    batch_tfms = [*aug_transforms(
+        size = 224,
+        max_rotate = 30,
+        max_zoom = 1.3,
+        max_warp = 0.2,
+        p_affine = 0.75,
+        p_lighting = 0.8
+    ),
+    Normalize.from_stats(*imagenet_stats)
+    ]
+)
+
+#create dataloaders
+
+dls = dblock.dataloaders(dataset_path, bs=BATCH_SIZE)
+dls.show_batch(max_n = 6, figsize=(12,8))
+print(f"Training images : {len(dls.train_ds)}")
+print(f"Validation images : {len(dls.valid_ds)}")
+
+# Using fastai's built-in weighted cross-entropy loss
+from fastai.losses import CrossEntropyLossFlat
+
+# Create weight tensor in the order of dls.vocab (fastai's class ordering)
+weight_tensor = torch.tensor([class_weights_dict[cls] for cls in dls.vocab], dtype=torch.float).to(dls.device)
+loss_func = CrossEntropyLossFlat(weight=weight_tensor)
+
+learn = vision_learner(dls, resnet50, loss_func=loss_func, metrics=[accuracy, error_rate]).to_fp16()
+learn.fine_tune(5, base_lr=1e-3, cbs = [EarlyStoppingCallback(monitor='valid_loss', patience=3),
+                                        SaveModelCallback(monitor='valid_loss', fname='best_model')
+                                        ])
+
+# More robust approach - get predictions from validation set specifically
+valid_preds, valid_targs = learn.get_preds(ds_idx=1)  # ds_idx=1 for validation set
+pred_classes = valid_preds.argmax(dim=1)
+
+# Manual confusion matrix using sklearn
+from sklearn.metrics import confusion_matrix, classification_report
+import seaborn as sns
+
+class_labels = list(dls.vocab)
+
+# Confusion matrix
+cm = confusion_matrix(valid_targs.cpu(), pred_classes.cpu())
+plt.figure(figsize=(10,10))
+sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
+            xticklabels=class_labels, yticklabels=class_labels)
+plt.title('Confusion Matrix')
+plt.ylabel('True Label')
+plt.xlabel('Predicted Label')
+plt.tight_layout()
+plt.show()
+
+# Classification report
+print("\nClassification Report:")
+print(classification_report(valid_targs.cpu(), pred_classes.cpu(), target_names=class_labels, zero_division=0, digits=4))
+
+#Exporting the model (adding version and metadata)
+val_metrics = learn.validate()
+model_name = f"resnet50-v1-acc{val_metrics[1]:.4f}.pkl"
+learn.export(model_export_path / model_name)
+
+pd.Series(dls.vocab).to_csv(model_export_path / 'vocab.csv', index=False)
+pd.Series(class_weights_dict).to_csv(model_export_path / 'class_weights.csv')
+
+#Saving the training graph now
+epochs = [0, 1, 2, 3, 4]
+train_losses = [0.494610, 0.361821, 0.234460, 0.158439, 0.136415]
+valid_losses = [0.264964, 0.161635, 0.195394, 0.148899, 0.151513]
+
+plt.figure(figsize=(8, 6))
+plt.plot(epochs, train_losses, 'b-o', label='Training Loss', linewidth=2, markersize=6)
+plt.plot(epochs, valid_losses, 'r-o', label='Validation Loss', linewidth=2, markersize=6)
+plt.xlabel('Epoch')
+plt.ylabel('Loss')
+plt.title('Training and Validation Loss')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig(model_export_path / 'loss_curve.png', dpi=300, bbox_inches='tight')
+plt.show()
+
+learn_inf = load_learner(model_export_path / model_name)
+
+# Debug: Check the loaded model's vocabulary
+print("Original model vocab:", dls.vocab)
+print("Loaded model vocab:", learn_inf.dls.vocab)
+print("Vocab lengths - Original:", len(dls.vocab), "Loaded:", len(learn_inf.dls.vocab))
+
+# Create a clean model for inference (without custom loss function)
+print("Creating clean inference model...")
+
+# Create a new learner with standard CrossEntropyLoss for inference
+learn_clean = vision_learner(dls, resnet50, metrics=[accuracy, error_rate])
+
+# Copy the trained weights from the original model
+learn_clean.model.load_state_dict(learn.model.state_dict())
+
+# Now test inference with the clean model
+test_image_path = all_images[0]
+print(f"Testing with image: {test_image_path}")
+
+inference_image = PILImage.create(test_image_path)
+pred_class, pred_idx, probs = learn_clean.predict(inference_image)
+
+# Updated GROUP_MAPPING
+GROUP_MAPPING = {
+    '3_long_blade_rotor': 'drone',
+    '3_short_blade_rotor': 'drone',
+    'Bird': 'bird',
+    'drone': 'drone',
+    'rc_plane': 'drone'
+}
+
+bird_score, drone_score = 0.0, 0.0
+for i, cls in enumerate(dls.vocab):
+    prob = probs[i].item()
+    group = GROUP_MAPPING.get(cls)
+    if group == 'bird':
+        bird_score += prob
+    elif group == 'drone':
+        drone_score += prob
+
+final_pred = 'bird' if bird_score > drone_score else 'drone'
+confidence = max(bird_score, drone_score)
+
+print("="*50)
+print(f"Original Prediction: {pred_class}")
+print(f"Probability Distribution:")
+for i, cls in enumerate(dls.vocab):
+    print(f"  {cls}: {probs[i]:.4f}")
+print("="*50)
+print(f"Binary Classification: {final_pred}")
+print(f"Confidence: {confidence:.4f}")
+print("="*50)
+
+display(inference_image)
+
+# Export the clean model for future use
+clean_model_name = f"resnet50-clean-v1-acc{val_metrics[1]:.4f}.pkl"
+learn_clean.export(model_export_path / clean_model_name)
+print(f"Clean model exported as: {clean_model_name}")
+
+

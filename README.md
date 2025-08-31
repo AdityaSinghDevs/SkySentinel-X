@@ -15,7 +15,7 @@ Your acknowledgment helps in maintaining transparency and credits the effort beh
 ---
 + ## Upcoming Updates  
 
-+ The repository will soon be updated with organized datasets and additional gsource code.  
++ The repository will soon be updated with organized datasets and additional source code.  
 + These updates will include refined data, improved documentation, and structured implementations.  
 ---
 
