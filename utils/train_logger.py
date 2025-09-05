@@ -2,11 +2,11 @@ import logging
 import os
 from typing import Optional
 
-def get_train_logger(name:str, log_level: str = 'INFO',
+def get_train_logger( log_level: str = 'INFO',
                  console : bool = True, log_file : Optional[str]=None,
                  )->logging.Logger:
 
-    logger = logging.getLogger(name)
+    logger = logging.getLogger("inferencen")
     logger.setLevel(getattr(logging, log_level.upper(), logging.INFO))
     logger.propagate = False
 
