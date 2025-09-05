@@ -3,7 +3,7 @@ import os
 from typing import Optional
 
 def get_train_logger(name:str, log_level: str = 'INFO',
-                 console : bool = True,
+                 console : bool = True, log_file : Optional[str]=None,
                  )->logging.Logger:
 
     logger = logging.getLogger(name)
@@ -21,7 +21,11 @@ def get_train_logger(name:str, log_level: str = 'INFO',
 
         base_log_dir = "../logs"
 
-        log_file = os.path.join(base_log_dir, "train.log")
+        if log_file:
+            log_file= os.path.join(base_log_dir, log_file)
+        else :
+            log_file = os.path.join(base_log_dir, "train.log")
+        
         os.makedirs(os.path.dirname(log_file), exist_ok=True)
 
         file_handler = logging.FileHandler(log_file, mode="a" , encoding= 'utf-8')
