@@ -25,7 +25,7 @@ class JSONFormatter(logging.Formatter):
         if hasattr(record, "latency_ms"):
             log_record["latency_ms"] = record.latency_ms
         
-        return json.dump(log_record)
+        return json.dumps(log_record)
     
 def get_serve_logger(log_level : str = "INFO", log_file : Optional[str] = None)-> logging.Logger: 
         
@@ -46,7 +46,7 @@ def get_serve_logger(log_level : str = "INFO", log_file : Optional[str] = None)-
 
         return logger
 
-serve_logger = get_serve_logger()
+serve_logger = get_serve_logger(log_file="../logs/Serve_logs.json")
 
 def log_request(path:str):
     req_id = str(uuid.uuid4())
@@ -58,7 +58,7 @@ def log_response(req_id:str, path: str, status_code:int, start_time : float):
     latency = round((time.time() - start_time) * 1000, 2)
     serve_logger.info(
         "Response sent", 
-        extra={"requwst_id":req_id, "path" : path, "status_code":status_code, "latency_ms": latency},
+        extra={"request_id":req_id, "path" : path, "status_code":status_code, "latency_ms": latency},
     )
         
         
