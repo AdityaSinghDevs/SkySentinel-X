@@ -6,7 +6,7 @@ def get_train_logger( log_level: str = 'INFO',
                  console : bool = True, log_file : Optional[str]=None,
                  )->logging.Logger:
 
-    logger = logging.getLogger("inferencen")
+    logger = logging.getLogger("inference")
     logger.setLevel(getattr(logging, log_level.upper(), logging.INFO))
     logger.propagate = False
 
